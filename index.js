@@ -3,7 +3,8 @@
 ;(function(){
 	"use strict";
 	
-	var PORT = 80;
+	var PORT = process.env.PORT || 80;
+	
 	var BASE_HTML_FILE = __dirname + '/index.html';
 	
 	var fs = require('fs');
