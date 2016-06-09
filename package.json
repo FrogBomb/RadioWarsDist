@@ -1,0 +1,32 @@
+{
+  "name": "radio-wars",
+  "version": "0.0.1",
+  "description": "A multiplayer radio button game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thomas Blanchet",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "express-socket.io-session": "^1.3.1",
+    "fs": "0.0.2",
+    "http": "0.0.0",
+    "socket.io": "^1.4.6"
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-declare": "^0.3.0",
+    "gulp-handlebars": "^4.0.0",
+    "gulp-if": "^2.0.1",
+    "gulp-insert": "^0.5.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-wrap": "^0.13.0"
+  }
+}

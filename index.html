@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Radio Wars</title>
+	<LINK href="css/combined.css" title="compact" rel="stylesheet" type="text/css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	<script src="./js/hbsTemplates.js"></script>
+</head>
+<body>
+	<div id="team"></div>
+	<div class = "roomButtons">
+	<button onclick="gotoRoom(0)">noob room</button>
+	<button onclick="gotoRoom(1)">kinda good room</button>
+	<button onclick="gotoRoom(2)">pro room</button></div>
+	<div class = "mapHolder"></div>
+	<script src="./js/compiled.js"></script>
+</body>
+</html>

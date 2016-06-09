@@ -1,0 +1,9 @@
+{"numTeams": 2,
+ "numRadios": 12,
+ "mapGridSize":[12, 5],
+ "radioGridLoc": [[1,0],[2,1],[1,2],[2,3],[1,4],[5,2],[6,2],[10,0],[9,1],[10,2],[9,3],[10,4]],
+ "radioStartStates": [0,0,0,0,0,1,0,1,1,1,1,1],
+ "startFields": [{"x":0, "y":0, "width":1, "height": 5},
+				 {"x":11, "y":0, "width":1, "height": 5}],
+ "teamNames": ["red", "blue"]
+}

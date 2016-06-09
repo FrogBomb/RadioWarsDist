@@ -1,0 +1,25 @@
+.mapCell{
+	width: 100px;
+	height: 100px;
+	float: left;
+	border: 1px solid gainsboro;
+}
+.mapHolder{
+}
+.red-button{
+}
+.blue-button{
+}
+.red-spawn{
+	border-color: lightcoral;
+	
+}
+.blue-spawn{
+	border-color: lightblue;
+}
+.red-selected{
+	background-color: lightcoral;
+}
+.blue-selected{
+	background-color: lightblue;
+}
