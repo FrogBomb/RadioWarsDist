@@ -2,6 +2,7 @@
 function onNewPlayerJoin(username){//TODO
 	//username is a string that is the name of the joining user.
 	console.log(username + " joined!");
+	document.getElementById("aloneMes").innerHTML = "";
 }
 
 //function onRoomUpdate(gameData){//TODO
@@ -50,13 +51,16 @@ function onJoinRoom(roomData){//TODO
 	/*
 	input structure:
 		roomData
-			.roomIndex
+			.roomIndex : int
 			.roomName : string
 			.team : int
 			.mapData: JSON of map file data
 	*/
 	setRoomName(roomData.roomName);
 	console.log("Joined Room " + roomData.roomName + " on team " + roomData.team);
+	if(roomData.roomIndex == 0){
+		document.getElementById("aloneMes").innerHTML = "<h1>You joined by yourself! Invite some friends to join!!</h1>";
+	}
 	document.getElementById('team').innerHTML = "<h1 style='color:"+roomData.mapData.teamNames[roomData.team]+"'>You are on team " + roomData.mapData.teamNames[roomData.team] + "</h1>";
 	displayMapFromRoomData(roomData);
 	setTimeout(function(){socket.emit('roomLoaded', {})}, 10);

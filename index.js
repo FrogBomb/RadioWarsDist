@@ -160,6 +160,9 @@
 			return this.numPlayers-1;
 			
 		},
+		removePlayer: function(roomIndex){
+			this.numPlayers--;
+		},
 		//Returns radio team of the player with the passed roomIndex
 		getRadioTeam: function(roomIndex){
 			if(this.mapFileRead){
@@ -285,9 +288,10 @@
 //			}, UPDATESPEED);
 			
 			//Handle for a user leaving a gameroom.
-			socket.on('leaveGameroom', function(){
+			socket.on('disconnect', function(){
 				if(room){
 					socket.leave(room.name);
+					room.removePlayer(socket.handshake.session.roomIndex);
 				}
 				if(getUpdates !== null){
 					clearInterval(getUpdates);
