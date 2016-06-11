@@ -1,6 +1,10 @@
 //backend
 
 ;(function(){
+	
+	if(!this.System){
+		var System = {getenv: function(){}};
+	}
 	"use strict";
 	
 	var PORT = process.env.PORT || 80;
@@ -11,7 +15,7 @@
 	
 	var express = require('express');
 	var bodyParser = require('body-parser');
-	var config = require('./config.js');
+//	var config = require('./config.js');
 	var http = require('http');
 	
 	var session = require('express-session');
@@ -22,7 +26,7 @@
 	var io = require("socket.io")(server);
 	
 	var sessionSet = session({
-		  secret: config.secret,
+		  secret: System.getenv("secret") || "thisIsNotDeployedCorrectly",
 		  resave: false,
 		  saveUninitialized: true,
 		  cookie: { secure: true }
