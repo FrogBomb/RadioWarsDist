@@ -126,6 +126,7 @@
 		this.mapInfoRef = mapInfoRef;//file reference to generate the game room.
 		this.mapData; // Will hold the map data object from mapInfoRef
 		this.mapFileRead = false;
+		this.teamAssign = 0;
 		fs.readFile(mapInfoRef, readMapFileCallback.bind(this))
 		//Server side game state.
 //		this.gameState = new GameState();
@@ -163,10 +164,10 @@
 		removePlayer: function(roomIndex){
 			this.numPlayers--;
 		},
-		//Returns radio team of the player with the passed roomIndex
-		getRadioTeam: function(roomIndex){
+		//Returns an assigned radio team
+		getRadioTeam: function(){
 			if(this.mapFileRead){
-				return roomIndex%this.mapData.numTeams;
+				return (this.teamAssign++)%this.mapData.numTeams;
 			}
 			return -1;//Map file not yet read
 		}
@@ -240,7 +241,8 @@
 			room = ROOMS[roomNumber];
 			var roomIndex = room.addPlayer();
 			socket.handshake.session.roomIndex = roomIndex;
-			
+			var radioTeam = room.getRadioTeam();
+			socket.handshake.session.radioTeam = radioTeam;
 //			socket.emit('roomIndex', roomIndex);
 				
 			socket.handshake.session.roomNumber = roomNumber;
@@ -250,7 +252,7 @@
 					{
 						roomIndex: roomIndex,
 						roomName: room.name,
-						team: room.getRadioTeam(socket.handshake.session.roomIndex),
+						team: radioTeam,
 						mapData: ROOMS[roomNumber].mapData
 						
 					});
