@@ -237,11 +237,12 @@
 		});
 		//gameroom: join the room with the given room number
 		socket.on('gameroom', function(roomNumber){
-			var radioTeam = room.getRadioTeam();
+			
 			room = ROOMS[roomNumber];
 			var roomIndex = room.addPlayer();
 			socket.handshake.session.roomIndex = roomIndex;
-			
+			var radioTeam = room.getRadioTeam();
+			socket.handshake.session.radioTeam = radioTeam;
 //			socket.emit('roomIndex', roomIndex);
 				
 			socket.handshake.session.roomNumber = roomNumber;
